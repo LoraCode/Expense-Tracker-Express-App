@@ -8,3 +8,7 @@ function findAll() {
       FROM transaction
       `);
 }
+
+module.exports = {
+  findAll,
+};
