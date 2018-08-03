@@ -8,7 +8,9 @@
     "dev": "nodemon server.js -e css,html,js",
     "debug": "nodemon --inspect-brk",
     "db:schema:dev": "psql -f db/schema.sql",
+    "db:seed:test": "psql -f db/seed.sql",
     "db:seed:dev": "node db/seed.js",
+    "db:reset:test": "psql -f db/schema.sql && psql -f db/seed.sql",
     "db:reset:dev": "psql -f db/schema.sql quotes_dev && node db/seed.js"
   },
   "repository": {
