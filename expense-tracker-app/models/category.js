@@ -1,3 +1,1 @@
-const db =require('../config/dbConnection');
-
-fun
+const db =require('../config/dbConnection').default;

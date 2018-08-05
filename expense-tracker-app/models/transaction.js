@@ -1,11 +1,11 @@
 // TRANSACTION MODEL
 
-const db = require('../config');
+const db = require('../config/dbConnection');
 
 function findAll() {
   return db.many(`
       SELECT *
-      FROM transaction
+      FROM transactions
       `);
 }
 
