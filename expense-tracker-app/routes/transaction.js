@@ -21,10 +21,11 @@ const send400 = (err, req, res, next) => {
 
 transactionRouter.route('/new')
   .get(views.createTransaction)
-  .post(transactionController.create);
+  .post(transactionController.create, views.handleRefresh);
 
 transactionRouter.route('/:id')
-  .get(transactionController.getOne, views.showTransaction);
+  .get(transactionController.getOne, views.showTransaction)
+  .delete(transactionController.destroy, views.handleRefresh);
 
 transactionRouter.route('/')
   .get(transactionController.getAll, views.showTransactions);

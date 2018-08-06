@@ -19,8 +19,15 @@ const saveTransaction = transaction => db.one(`
   RETURNING *
   `, transaction);
 
+const destroy = id => db.none(`
+  DELETE
+  FROM transactions
+  WHERE id = $1
+  `, id);
+
 module.exports = {
   findAll,
   findOne,
   saveTransaction,
+  destroy,
 };

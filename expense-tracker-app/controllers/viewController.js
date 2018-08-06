@@ -16,8 +16,13 @@ const createTransaction = (req, res) => {
   res.render('createTransaction');
 };
 
+const handleRefresh = (req, res) => {
+  res.redirect('/transactions');
+};
+
 module.exports = {
   showTransactions,
   showTransaction,
   createTransaction,
+  handleRefresh,
 };

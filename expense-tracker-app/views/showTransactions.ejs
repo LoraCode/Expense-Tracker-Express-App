@@ -12,8 +12,11 @@
     <h2>Transactions:</h2>
     <div>
         <% transactions.forEach(transaction => { %>
-            <p>description: <%= transaction.description %></p>
-            <p>amount: <%= transaction.amount %></p>
+            <hr />
+            <p>ID: <%= transaction.id %></p>
+            <p>Description: <%= transaction.description %></p>
+            <p>Amount: <%= transaction.amount %></p>
+            <p>Category: <%= transaction.category_name %></p>
         <% }) %>
     </div>
 </body>

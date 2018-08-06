@@ -33,8 +33,18 @@ const create = async (req, res, next) => {
   }
 };
 
+const destroy = async (req, res, next) => {
+  try {
+    await db.destroy(req.params.id);
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getAll,
   getOne,
   create,
+  destroy,
 };

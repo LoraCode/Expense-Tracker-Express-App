@@ -12,6 +12,12 @@
     <div>
         <p>description: <%= transaction.description %></p>
         <p>amount: <%= transaction.amount %></p>
+
+        <form 
+            method="POST" 
+            action="/transactions/<%= transaction.id %>?_method=DELETE">
+            <button type="submit">Delete Transaction</button>
+        </form>
     </div>
 </body>
 </html>
