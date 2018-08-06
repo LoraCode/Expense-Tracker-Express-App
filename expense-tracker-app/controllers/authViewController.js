@@ -8,6 +8,14 @@ const loginError = (req, res, next) => {
   next();
 };
 
+const registerError = (req, res, next) => {
+  if (!req.session.user) {
+    req.flash('error', 'Unable to register');
+    res.redirect('/auth/register');
+  }
+};
+
 module.exports = {
   loginError,
+  registerError,
 };
