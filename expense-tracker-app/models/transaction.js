@@ -9,8 +9,8 @@ const findAll = () => db.many(`
 
 const findOne = id => db.one(`
   SELECT *
-  FROM transactions AS t
-  WHERE t.id = $1
+  FROM transactions
+  WHERE id = $1
 `, id);
 
 const saveTransaction = transaction => db.one(`
