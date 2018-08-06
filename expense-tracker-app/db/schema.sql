@@ -30,7 +30,7 @@ CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     description VARCHAR(255),
     amount INTEGER NOT NULL,
-    category_id INTEGER REFERENCES categories (id) ON DELETE CASCADE,
+    category_name VARCHAR(255) REFERENCES categories (name) ON DELETE CASCADE,
     -- username_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );

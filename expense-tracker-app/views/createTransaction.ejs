@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h2>Create New Transaction</h2>
+    <div>
+        <form method='POST' action='/transactions/new'>
+            <label for='description'>Description: </label>
+            <input
+              type='text'
+              name='description'
+              id='description'>
+            <label for='amount'>Amount: </label>
+            <input
+              type='number'
+              name='amount'
+              id='amount'>
+            <label for='category_name'>Category: </label>
+            <input
+              type='text'
+              name='category_name'
+              id='category_name'>
+            <input type='submit' value='Submit New Transaction'>
+        </form>
+    </div>
+</body>
+</html>

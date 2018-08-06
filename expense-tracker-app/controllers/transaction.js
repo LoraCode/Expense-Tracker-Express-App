@@ -22,7 +22,19 @@ const getOne = async (req, res, next) => {
   }
 };
 
+const create = async (req, res, next) => {
+  try {
+    const { description, amount, category_name } = req.body;
+    const newTransaction = await db.saveTransaction({ description, amount, category_name });
+    res.locals.data = newTransaction;
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getAll,
   getOne,
+  create,
 };

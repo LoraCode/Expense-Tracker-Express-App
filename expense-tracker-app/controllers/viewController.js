@@ -12,7 +12,12 @@ const showTransaction = (req, res) => {
   });
 };
 
+const createTransaction = (req, res) => {
+  res.render('createTransaction');
+};
+
 module.exports = {
   showTransactions,
   showTransaction,
+  createTransaction,
 };

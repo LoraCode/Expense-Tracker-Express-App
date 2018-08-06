@@ -19,11 +19,15 @@ const send400 = (err, req, res, next) => {
   res.sendStatus(400);
 };
 
-transactionRouter.route('/')
-  .get(transactionController.getAll, views.showTransactions);
+transactionRouter.route('/new')
+  .get(views.createTransaction)
+  .post(transactionController.create);
 
 transactionRouter.route('/:id')
   .get(transactionController.getOne, views.showTransaction);
+
+transactionRouter.route('/')
+  .get(transactionController.getAll, views.showTransactions);
 
 transactionRouter.use(handle404);
 
