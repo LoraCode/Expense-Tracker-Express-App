@@ -41,7 +41,23 @@ app.use(flash());
 app.use('/transactions', transactionRouter);
 
 app.get('/', (req, res) => {
-  res.send('hello world');
+  res.render('index');
+});
+
+// Allow app to send a json object for routes our app does not recognize
+app.use('*', (err, req, res, next) => {
+  res.status(400).json({
+    error: err,
+    message: err.message,
+  });
+});
+
+// Render json object for server errors
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    error: err,
+    message: err.message,
+  });
 });
 
 app.listen(PORT, () => {
