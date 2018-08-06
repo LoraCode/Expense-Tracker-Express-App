@@ -20,7 +20,10 @@ const send400 = (err, req, res, next) => {
 };
 
 transactionRouter.route('/')
-  .get(transactionController.index, views.showTransactions);
+  .get(transactionController.getAll, views.showTransactions);
+
+transactionRouter.route('/:id')
+  .get(transactionController.getOne, views.showTransaction);
 
 transactionRouter.use(handle404);
 

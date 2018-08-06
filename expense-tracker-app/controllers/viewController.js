@@ -6,6 +6,13 @@ const showTransactions = (req, res) => {
   });
 };
 
+const showTransaction = (req, res) => {
+  res.render('showTransaction', {
+    transaction: res.locals.data,
+  });
+};
+
 module.exports = {
   showTransactions,
+  showTransaction,
 };
