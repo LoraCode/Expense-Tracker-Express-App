@@ -66,7 +66,13 @@ const register = (req, res, next) => {
     });
 };
 
+const logout = (req, res, next) => {
+  // End the session
+  req.session.destroy(err => next(err));
+};
+
 module.exports = {
   login,
   register,
+  logout,
 };
