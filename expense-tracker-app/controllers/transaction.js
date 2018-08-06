@@ -12,6 +12,15 @@ const getAll = async (req, res, next) => {
   }
 };
 
+const empytTransaction = async (req, res, next) => {
+  try {
+    await db.saveTransaction({ ...req.body });
+    res.redirect('/transactions');
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getOne = async (req, res, next) => {
   try {
     const transaction = await db.findOne(req.params.id);
@@ -33,6 +42,23 @@ const create = async (req, res, next) => {
   }
 };
 
+const update = async (req, res, next) => {
+  try {
+    const { description, amount, category_name } = req.body;
+    const modifiedTransaction = {
+      id: req.params.id,
+      description,
+      amount,
+      category_name,
+    };
+    const updateTransaction = await db.saveTransaction(modifiedTransaction);
+    res.locals.data = updateTransaction;
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
+
 const destroy = async (req, res, next) => {
   try {
     await db.destroy(req.params.id);
@@ -44,7 +70,9 @@ const destroy = async (req, res, next) => {
 
 module.exports = {
   getAll,
+  empytTransaction,
   getOne,
   create,
+  update,
   destroy,
 };

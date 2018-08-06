@@ -10,14 +10,20 @@
 </head>
 <body>
     <div>
-        <p>description: <%= transaction.description %></p>
-        <p>amount: <%= transaction.amount %></p>
-
-        <form 
-            method="POST" 
-            action="/transactions/<%= transaction.id %>?_method=DELETE">
-            <button type="submit">Delete Transaction</button>
-        </form>
+        <p>ID: <%= transaction.id %></p>
+        <p>Description: <%= transaction.description %></p>
+        <p>Amount: <%= transaction.amount %></p>
+        <p>Category: <%= transaction.category_name %></p>
+        <div>
+            <form 
+                method="POST" 
+                action="/transactions/<%= transaction.id %>?_method=DELETE">
+                <button type="submit">Delete Transaction</button>
+            </form>
+        </div>
+        <div>
+            <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
+        </div>
     </div>
 </body>
 </html>

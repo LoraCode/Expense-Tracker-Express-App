@@ -20,12 +20,16 @@ const send400 = (err, req, res, next) => {
 };
 
 transactionRouter.route('/new')
-  .get(views.createTransaction)
+  .get(transactionController.empytTransaction, views.createTransaction)
   .post(transactionController.create, views.handleRefresh);
+
+transactionRouter.route('/:id/edit')
+  .get(transactionController.getOne, views.editTransaction);
 
 transactionRouter.route('/:id')
   .get(transactionController.getOne, views.showTransaction)
-  .delete(transactionController.destroy, views.handleRefresh);
+  .delete(transactionController.destroy, views.handleRefresh)
+  .put(transactionController.update, views.handleUpdate);
 
 transactionRouter.route('/')
   .get(transactionController.getAll, views.showTransactions);
