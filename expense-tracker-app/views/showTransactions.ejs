@@ -17,6 +17,12 @@
             <p>Description: <%= transaction.description %></p>
             <p>Amount: <%= transaction.amount %></p>
             <p>Category: <%= transaction.category_name %></p>
+            <form 
+                method="POST" 
+                action="/transactions/<%= transaction.id %>?_method=DELETE">
+                <button type="submit">Delete Transaction</button>
+            </form>
+            <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
         <% }) %>
     </div>
 </body>
