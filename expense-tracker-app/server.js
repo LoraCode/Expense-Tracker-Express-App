@@ -1,12 +1,12 @@
 // EXPRESS SERVER CONFIGURATION
 
 // Acquire dependencies
-const express    = require('express');
-const logger     = require('morgan');
-const path       = require('path');
+const express = require('express');
+const logger = require('morgan');
+const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const session    = require('express-session');
+const session = require('express-session');
 
 const transactionRouter = require('./routes/transaction');
 
