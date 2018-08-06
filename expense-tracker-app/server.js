@@ -1,5 +1,7 @@
 // EXPRESS SERVER CONFIGURATION
 
+require('dotenv').config();
+
 // Acquire dependencies
 const express = require('express');
 const logger = require('morgan');
@@ -15,8 +17,6 @@ const authRouter = require('./routes/auth');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-
-// app.use(express.static());
 
 // Set the sercret using the SERVER_SECRET key stored in the .env file
 app.set('server_secret', process.env.SERVER_SECRET);
@@ -34,6 +34,8 @@ app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride('_method'));
 

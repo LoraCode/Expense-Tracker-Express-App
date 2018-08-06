@@ -7,11 +7,11 @@ const authView = require('../controllers/authViewController');
 const authRouter = express.Router();
 
 authRouter.route('/login')
-  .get()
+  .get(authView.showLoginForm)
   .post(authController.login, authView.loginError);
 
 authRouter.route('/register')
-  .get()
+  .get(authView.showRegisterForm)
   .post(authController.register, authView.registerError);
 
 module.exports = authRouter;
