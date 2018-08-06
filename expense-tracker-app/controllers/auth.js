@@ -71,8 +71,15 @@ const logout = (req, res, next) => {
   req.session.destroy(err => next(err));
 };
 
+const loginRequired = [
+  /* this is either going to resolve to next(false) or next(null) */
+  (req, res, next) => next(!req.session.user || null),
+  (err, req, res, next) => res.sendStatus(401),
+];
+
 module.exports = {
   login,
   register,
   logout,
+  loginRequired,
 };

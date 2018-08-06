@@ -13,3 +13,5 @@ authRouter.route('/login')
 authRouter.route('/register')
   .get()
   .post(authController.register, authView.registerError);
+
+module.exports = authRouter;

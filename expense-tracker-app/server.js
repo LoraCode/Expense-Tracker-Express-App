@@ -10,6 +10,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 const transactionRouter = require('./routes/transaction');
+const authRouter = require('./routes/auth');
 
 const PORT = process.env.PORT || 3000;
 
@@ -39,6 +40,7 @@ app.use(methodOverride('_method'));
 app.use(flash());
 
 app.use('/transactions', transactionRouter);
+app.use('/auth', authRouter);
 
 app.get('/', (req, res) => {
   res.render('index');
