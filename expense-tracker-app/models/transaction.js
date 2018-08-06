@@ -2,12 +2,10 @@
 
 const db = require('../config/dbConnection');
 
-function findAll() {
-  return db.many(`
+const findAll = () => db.many(`
       SELECT *
       FROM transactions
       `);
-}
 
 module.exports = {
   findAll,

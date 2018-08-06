@@ -2,14 +2,15 @@
 
 const db = require('../models/transaction');
 
-function index(req, res, next) {
-  db.findAll()
-    .then((transactions) => {
-      res.locals.data = transactions;
-      next();
-    })
-    .catch(err => next(err));
-}
+const index = async (req, res, next) => {
+  try {
+    const transactions = await db.findAll();
+    res.locals.data = transactions;
+    next();
+  } catch (err) {
+    next(err);
+  }
+};
 
 module.exports = {
   index,
