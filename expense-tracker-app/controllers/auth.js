@@ -1,8 +1,8 @@
 // AUTH CONTROLLER
 
-const bcrypt = require('bcrypt');
-const db = require('../models/user');
-const views = require('../controllers/authViewController');
+// const bcrypt = require('bcrypt');
+// const db = require('../models/user');
+// const views = require('../controllers/authViewController');
 // compare entered password with password_digest from database
 const checkPassword = (loginAttempt, userInfo) => {
   const validPassword = bcrypt.compareSync(loginAttempt.password, userInfo.password_digest);
@@ -39,7 +39,7 @@ const login = (req, res, next) => {
     });
 };
 
-const register = (req, res, next) => {
+const register = async (req, res, next) => {
   // Convert SALT value from .env to an integer
   const salt = parseInt(process.env.SALT);
   // Hash registered password with hidden number of SALT rounds
@@ -49,21 +49,17 @@ const register = (req, res, next) => {
     username: req.body.username,
     password_digest: hash,
   };
+  console.log(user);
   // Store credentials into database
-  db.saveUser(user)
-    .then((user) => {
-      if (!user) {
-        throw {
-          message: 'Try again',
-        };
-      }
-      // Okay now remember this user
-      req.session.user = user;
-      next();
-    })
-    .catch((err) => {
-      views.registerError(req, res, next);
-    });
+  try {
+    const newUser = await db.saveUser(user);
+    debugger;
+    // Okay now remember this user
+    req.session.user = newUser;
+    next();
+  } catch (err) {
+    views.registerError(req, res, next);
+  }
 };
 
 const logout = (req, res, next) => {
@@ -77,9 +73,9 @@ const loginRequired = [
   (err, req, res, next) => res.sendStatus(401),
 ];
 
-module.exports = {
-  login,
-  register,
-  logout,
-  loginRequired,
-};
+// module.exports = {
+//   login,
+//   register,
+//   logout,
+//   loginRequired,
+// };

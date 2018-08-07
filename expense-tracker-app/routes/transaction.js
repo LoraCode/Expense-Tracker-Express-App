@@ -7,9 +7,9 @@ const views = require('../controllers/viewController');
 
 const transactionRouter = express.Router();
 
-const showJSON = (req, res) => {
-  res.json(res.locals.data);
-};
+// const showJSON = (req, res) => {
+//   res.json(res.locals.data);
+// };
 
 const handle404 = (err, req, res, next) => {
   console.log(err);

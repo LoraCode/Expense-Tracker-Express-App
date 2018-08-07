@@ -1,28 +1,28 @@
 // VIEW CONTROLLER
 
 const showTransactions = (req, res) => {
-  res.render('/transactions/showTransactions', {
+  res.render('transactions/showTransactions', {
     transactions: res.locals.data,
   });
 };
 
 const showTransaction = (req, res) => {
-  res.render('/transactions/showTransaction', {
+  res.render('transactions/showTransaction', {
     transaction: res.locals.data,
   });
 };
 
 const createTransaction = (req, res) => {
-  res.render('/transactions/createTransaction');
+  res.render('transactions/createTransaction');
 };
 
 const editTransaction = (req, res) => {
-  res.render('/transactions/editTransaction');
+  res.render('transactions/editTransaction');
 };
 
 const handleUpdate = (req, res) => {
   const { id } = req.params;
-  res.redirect(`/transactions/${id}`);
+  res.redirect(`transactions/${id}`);
 };
 
 const handleRefresh = (req, res) => {

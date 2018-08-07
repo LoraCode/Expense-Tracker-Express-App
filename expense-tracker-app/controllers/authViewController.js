@@ -32,10 +32,10 @@ const redirectToLogin = (req, res) => {
   res.redirect('/auth/login');
 };
 
-module.exports = {
-  loginError,
-  registerError,
-  showLoginForm,
-  showRegisterForm,
-  redirectToLogin,
-};
+// module.exports = {
+//   loginError,
+//   registerError,
+//   showLoginForm,
+//   showRegisterForm,
+//   redirectToLogin,
+// };

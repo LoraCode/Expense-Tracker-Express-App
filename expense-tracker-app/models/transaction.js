@@ -19,6 +19,12 @@ const saveTransaction = transaction => db.one(`
   RETURNING *
   `, transaction);
 
+const update = transaction => db.one(`
+  UPDATE transactions
+  SET description = $/description/, amount = $/amount/, category_name = $/category_name/
+  WHERE id = $/id/
+  `);
+
 const destroy = id => db.none(`
   DELETE
   FROM transactions
@@ -29,5 +35,6 @@ module.exports = {
   findAll,
   findOne,
   saveTransaction,
+  update,
   destroy,
 };

@@ -1,6 +1,5 @@
 // USER MODEL
 
-const bcrypt = require('bcrypt');
 const db = require('../config/dbConnection');
 
 const findByUsername = username => db.one(`
@@ -21,8 +20,8 @@ const saveUser = user => db.one(`
   RETURNING *
 `, user);
 
-module.exports = {
-  findByUsername,
-  findById,
-  saveUser,
-};
+// module.exports = {
+//   findByUsername,
+//   findById,
+//   saveUser,
+// };

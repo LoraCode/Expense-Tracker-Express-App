@@ -51,7 +51,7 @@ const update = async (req, res, next) => {
       amount,
       category_name,
     };
-    const updateTransaction = await db.saveTransaction(modifiedTransaction);
+    const updateTransaction = await db.update(modifiedTransaction);
     res.locals.data = updateTransaction;
     next();
   } catch (err) {
