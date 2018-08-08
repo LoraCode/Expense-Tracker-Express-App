@@ -1,3 +1,5 @@
+<%- include('../partials/head') %>
+
 Hey <%= user.username %>
 
 <form method="POST" action="/users/profile?_method=DELETE">
@@ -7,3 +9,5 @@ Hey <%= user.username %>
       </p>
     </div>
 </form>
+
+<%- include('../partials/foot') %>

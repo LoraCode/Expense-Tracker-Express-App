@@ -2,8 +2,8 @@
 
 const express = require('express');
 
-const transactionController = require('../controllers/transaction');
-const views = require('../controllers/viewController');
+const transactionController = require('../controllers/transaction/transaction');
+const views = require('../controllers/transaction/transactionView');
 
 const transactionRouter = express.Router();
 
@@ -22,7 +22,7 @@ const send400 = (err, req, res, next) => {
 };
 
 transactionRouter.route('/new')
-  .get(transactionController.empytTransaction, views.createTransaction)
+  .get(views.createTransaction)
   .post(transactionController.create, views.handleRefresh);
 
 transactionRouter.route('/:id/edit')

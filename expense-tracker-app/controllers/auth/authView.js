@@ -1,19 +1,19 @@
 // AUTH VIEW CONTROLLER
 
-const loginError = (req, res, next) => {
+// Display an error message if its not a Returning user
+const loginError = (req, res) => {
   if (!req.session.user) {
     req.flash('error', 'Invalid Login Credentials');
     res.redirect('/auth/login');
   }
-  next();
 };
-
-const registerError = (req, res, next) => {
+// Display an error message if inputed username matches an existing users username
+const registerError = (req, res) => {
   if (!req.session.user) {
     req.flash('error', 'Unable to register');
     res.redirect('/auth/register');
   }
-  next();
+  // CALLED NEXT HERE AND IT GAVE ME AN ERROR 500 WHERE I WAS SENDING TWO RESPONSES
 };
 
 const showLoginForm = (req, res) => {
@@ -32,10 +32,10 @@ const redirectToLogin = (req, res) => {
   res.redirect('/auth/login');
 };
 
-// module.exports = {
-//   loginError,
-//   registerError,
-//   showLoginForm,
-//   showRegisterForm,
-//   redirectToLogin,
-// };
+module.exports = {
+  loginError,
+  registerError,
+  showLoginForm,
+  showRegisterForm,
+  redirectToLogin,
+};

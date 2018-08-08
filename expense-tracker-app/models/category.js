@@ -1,6 +1,6 @@
 // CATEGORY MODEL
 
-const db = require('../config/dbConnection').default;
+const db = require('../config/dbConnection');
 
 const findAll = () => db.many(`
   SELECT *

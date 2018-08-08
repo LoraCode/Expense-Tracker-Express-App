@@ -1,6 +1,6 @@
 // TRANSACTION CONTROLLER
 
-const db = require('../models/transaction');
+const db = require('../../models/transaction');
 
 const getAll = async (req, res, next) => {
   try {
@@ -12,14 +12,17 @@ const getAll = async (req, res, next) => {
   }
 };
 
-const empytTransaction = async (req, res, next) => {
-  try {
-    await db.saveTransaction({ ...req.body });
-    res.redirect('/transactions');
-  } catch (err) {
-    next(err);
-  }
-};
+// Not using users/Auth
+
+// const empytTransaction = async (req, res, next) => {
+//   const { description, amount, category_name } = req.body;
+//   try {
+//     await db.saveTransaction({ description, amount, category_name });
+//     res.redirect('/transactions');
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 
 const getOne = async (req, res, next) => {
   try {
@@ -70,7 +73,7 @@ const destroy = async (req, res, next) => {
 
 module.exports = {
   getAll,
-  empytTransaction,
+  // empytTransaction,
   getOne,
   create,
   update,

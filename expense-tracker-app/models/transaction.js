@@ -23,7 +23,8 @@ const update = transaction => db.one(`
   UPDATE transactions
   SET description = $/description/, amount = $/amount/, category_name = $/category_name/
   WHERE id = $/id/
-  `);
+  RETURNING *
+  `, transaction);
 
 const destroy = id => db.none(`
   DELETE

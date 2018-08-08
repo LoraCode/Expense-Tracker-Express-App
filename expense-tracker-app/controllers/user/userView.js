@@ -14,8 +14,8 @@ const showUserProfile = (req, res) => {
   });
 };
 
-// module.exports = {
-//   handleUserProfile,
-//   handleLogout,
-//   showUserProfile,
-// };
+module.exports = {
+  handleUserProfile,
+  handleLogout,
+  showUserProfile,
+};

@@ -1,6 +1,6 @@
 // EXPRESS SERVER CONFIGURATION
 
-// require('dotenv').config();
+require('dotenv').config();
 
 // Acquire dependencies
 const express = require('express');
@@ -12,26 +12,26 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 const transactionRouter = require('./routes/transaction');
-// const authRouter = require('./routes/auth');
-// const userRouter = require('./routes/user');
+const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(logger('dev'));
+
+// set the secret using the SERVER_SECRET key stored in the .env file
+app.set('server_secret', process.env.SERVER_SECRET);
+// allow app to create session for users using SERVER_SECRET key. Other options are boilerplate.
+app.use(session({
+  secret:            app.get('server_secret'),
+  resave:            false,
+  saveUninitialized: false,
+}));
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
-// Set the sercret using the SERVER_SECRET key stored in the .env file
-// app.set('server_secret', process.env.SERVER_SECRET);
-// Allow app to create session for users using SERVER_SECRET key. Other options are boilerplate.
-// app.use(session({
-//   secret: app.get('server_secret'),
-//   resave: false,
-//   saveUninitialized: false,
-// }));
-
-app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -43,11 +43,11 @@ app.use(methodOverride('_method'));
 app.use(flash());
 
 app.use('/transactions', transactionRouter);
-// app.use('/auth', authRouter);
-// app.use('/users', userRouter);
+app.use('/auth', authRouter);
+app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
-  res.send('Hello! Welcome to my site');
+  res.render('Index');
 });
 
 // Allow app to send a json object for routes our app does not recognize

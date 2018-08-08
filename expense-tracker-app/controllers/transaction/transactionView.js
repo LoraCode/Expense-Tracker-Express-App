@@ -22,7 +22,7 @@ const editTransaction = (req, res) => {
 
 const handleUpdate = (req, res) => {
   const { id } = req.params;
-  res.redirect(`transactions/${id}`);
+  res.redirect(`/transactions/${id}`);
 };
 
 const handleRefresh = (req, res) => {
