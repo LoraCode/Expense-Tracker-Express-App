@@ -1,4 +1,5 @@
 /* AUTH CONTROLLER */
+// Refactored auth code shown by GA Instructor using async syntax and implemented few more functions
 
 // Bcrypt will be used to hash the plain text password (register phase) and compare password_digest
 const bcrypt = require('bcrypt');
