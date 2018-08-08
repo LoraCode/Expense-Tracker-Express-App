@@ -13,21 +13,21 @@ const registerError = (req, res) => {
     req.flash('error', 'Unable to register');
     res.redirect('/auth/register');
   }
-  // CALLED NEXT HERE AND IT GAVE ME AN ERROR 500 WHERE I WAS SENDING TWO RESPONSES
+// CALLED NEXT HERE AND IT GAVE ME AN ERROR 500 WHERE I WAS SENDING TWO RESPONSES
 };
-
+// Display Login form
 const showLoginForm = (req, res) => {
   res.render('auth/login', {
     messages: req.flash('error'),
   });
 };
-
+// Display Register form
 const showRegisterForm = (req, res) => {
   res.render('auth/register', {
     messages: req.flash('error'),
   });
 };
-
+// Redirect to Login handler
 const redirectToLogin = (req, res) => {
   res.redirect('/auth/login');
 };

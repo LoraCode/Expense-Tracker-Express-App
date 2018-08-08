@@ -15,8 +15,15 @@ const createUser = user => db.one(`
   VALUES ($/username/, $/email/, $/password_digest/)
   RETURNING *
 `, user);
+// Find user's by id to match and show that particular user's transactons
+const findByUserId = id => db.one(`
+  SELECT *
+  FROM users
+  WHERE id = $1
+`, id);
 
 module.exports = {
   findByUsername,
   createUser,
+  findByUserId,
 };

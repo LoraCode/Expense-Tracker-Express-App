@@ -1,7 +1,10 @@
-// TRANSACTION CONTROLLER
+/* TRANSACTION CONTROLLER */
+// MANIPULATING BY PASSING DATA FROM DATABASE
 
+// Import connected database
 const db = require('../../models/transaction');
 
+// Pull every transaction data from database
 const getAll = async (req, res, next) => {
   try {
     const transactions = await db.findAll();
@@ -26,7 +29,9 @@ const getAll = async (req, res, next) => {
 
 const getOne = async (req, res, next) => {
   try {
+    // Wait for promise to resolve
     const transaction = await db.findOne(req.params.id);
+    // Store that data into res.locals
     res.locals.data = transaction;
     next();
   } catch (err) {
@@ -35,8 +40,9 @@ const getOne = async (req, res, next) => {
 };
 
 const create = async (req, res, next) => {
+  // Destructure object recieved from a form and assign it to the request's body
+  const { description, amount, category_name } = req.body;
   try {
-    const { description, amount, category_name } = req.body;
     const newTransaction = await db.saveTransaction({ description, amount, category_name });
     res.locals.data = newTransaction;
     next();
@@ -44,16 +50,16 @@ const create = async (req, res, next) => {
     next(err);
   }
 };
-
+// Take already existing data and edit/change it through our update model function
 const update = async (req, res, next) => {
+  const { description, amount, category_name } = req.body;
+  const modifiedTransaction = {
+    id: req.params.id,
+    description,
+    amount,
+    category_name,
+  };
   try {
-    const { description, amount, category_name } = req.body;
-    const modifiedTransaction = {
-      id: req.params.id,
-      description,
-      amount,
-      category_name,
-    };
     const updateTransaction = await db.update(modifiedTransaction);
     res.locals.data = updateTransaction;
     next();
