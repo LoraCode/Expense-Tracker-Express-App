@@ -1,6 +1,8 @@
 # Expense-Tracker Express App
 Expense-Tracker stores users, and allows each particualr user to log their own expenses. The app is meant to provide full control over one user's log history, and it utilizes Auth to seperate and distinct each transaction logged from their presented user.
 
+https://loracode.github.io/express-project/.
+
 # Motivation
 Walking into this project, I was quickly eagered to implement Api usage and Auth configuration. Although these were exciting fields to explore upon, I was limited by the UI aspect of my entire app. Why use my app? Who is using my app? Questions like these proposed a problem for my planning phase. Tracking transactions happened to be the perfect beginner-friendly idea for practice. It's an idea where I knew I could start small, set myself with a manageable work-load, and build upon.
 
