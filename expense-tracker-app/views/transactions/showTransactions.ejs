@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel='stylesheet' href="/main.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 </head>
 <body>
-    <h2>Transactions:</h2>
-    <div>
+    <strong id="tTitle">Transactions: </strong>
+    <a href="/transactions" value='CRUD' class="button is-link">Show All</a>
+    <div id="tDiv">
         <% transactions.forEach(transaction => { %>
             <hr />
-            <p>ID: <%= transaction.id %></p>
-            <p>Description: <%= transaction.description %></p>
-            <p>Amount: <%= transaction.amount %></p>
-            <p>Category: <%= transaction.category_name %></p>
+            <p><strong>ID: </strong> <%= transaction.id %></p>
+            <p><strong>Description: </strong> <%= transaction.description %></p>
+            <p><strong>Amount: </strong> <%= transaction.amount %></p>
+            <p><strong>Category: </strong> <%= transaction.category_name %></p>
+            <a href="/transactions/<%= transaction.id %>" value='CRUD' class="button is-link">Show One</a>
             <form 
                 method="POST" 
                 action="/transactions/<%= transaction.id %>?_method=DELETE">
-                <button type="submit">Delete Transaction</button>
+                <button type="submit" value="Delete Transaction" class="button is-danger">Delete Transaction</button>
             </form>
-            <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
+            <a href="/transactions/<%= transaction.id %>/edit" class="button is-warning">Edit Transaction</a>
         <% }) %>
     </div>
 </body>

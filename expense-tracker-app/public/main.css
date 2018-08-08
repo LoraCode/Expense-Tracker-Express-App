@@ -10,3 +10,7 @@
     opacity: .7;
     border: 2px dashed black;
 }
+
+#tTitle {
+    font-size: 24pt;
+}

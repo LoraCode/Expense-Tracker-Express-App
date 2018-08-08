@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hello Bulma!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+        <link rel='stylesheet' href="/main.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 </head>
 <body>
     <div>
@@ -18,12 +18,13 @@
             <form 
                 method="POST" 
                 action="/transactions/<%= transaction.id %>?_method=DELETE">
-                <button type="submit">Delete Transaction</button>
+                <button type="submit" value="Delete Transaction" class="button is-danger">Delete Transaction</button>
             </form>
         </div>
         <div>
-            <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
+            <a href="/transactions/<%= transaction.id %>/edit" class="button is-warning">Edit Transaction</a>
         </div>
+        <a href="/transactions" value='CRUD' class="button is-link">Show All</a>
     </div>
 </body>
 </html>
