@@ -42,9 +42,9 @@ app.use(methodOverride('_method'));
 
 app.use(flash());
 
-app.use('/transactions', transactionRouter);
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
+app.use('/users/profile/transactions', transactionRouter);
 
 app.get('/', (req, res) => {
   res.render('Index');

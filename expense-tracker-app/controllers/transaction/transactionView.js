@@ -22,11 +22,11 @@ const editTransaction = (req, res) => {
 
 const handleUpdate = (req, res) => {
   const { id } = req.params;
-  res.redirect(`/transactions/${id}`);
+  res.redirect(`user/profile/transactions/${id}`);
 };
 
 const handleRefresh = (req, res) => {
-  res.redirect('/transactions');
+  res.redirect('user/profile/transactions');
 };
 
 module.exports = {

@@ -15,8 +15,6 @@ const getAll = async (req, res, next) => {
   }
 };
 
-// Not using users/Auth
-
 // const empytTransaction = async (req, res, next) => {
 //   const { description, amount, category_name } = req.body;
 //   try {
