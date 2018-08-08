@@ -1,4 +1,4 @@
-// VIEW CONTROLLER
+/* TRANSACTION VIEW CONTROLLER */
 
 const showTransactions = (req, res) => {
   res.render('transactions/showTransactions', {

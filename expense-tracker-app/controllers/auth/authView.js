@@ -1,4 +1,4 @@
-// AUTH VIEW CONTROLLER
+/* AUTH VIEW CONTROLLER */
 
 // Display an error message if its not a Returning user
 const loginError = (req, res) => {

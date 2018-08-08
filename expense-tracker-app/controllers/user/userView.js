@@ -1,7 +1,7 @@
-// USER VIEW CONTROLLER
+/* USER VIEW CONTROLLER */
 
 const handleUserProfile = (req, res) => {
-  res.redirect('/users/:user/profile');
+  res.redirect('/users/profile');
 };
 
 const handleLogout = (req, res) => {
@@ -9,7 +9,7 @@ const handleLogout = (req, res) => {
 };
 
 const showUserProfile = (req, res) => {
-  res.render('users/:user/profile', {
+  res.render('users/profile', {
     user: req.session.user,
   });
 };

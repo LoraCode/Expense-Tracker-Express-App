@@ -1,3 +1,5 @@
+/* SEED */
+
 const user = require('../controllers/auth/auth');
 const category = require('../models/category');
 const transaction = require('../models/transaction');

@@ -20,7 +20,7 @@ const send400 = (err, req, res, next) => {
   console.log(err);
   res.sendStatus(400);
 };
-
+// Routes are taking some path '/' followed by a http verb 'get, post, delete, put'
 transactionRouter.route('/new')
   .get(views.createTransaction)
   .post(transactionController.create, views.handleRefresh);
@@ -34,6 +34,7 @@ transactionRouter.route('/:id')
   .put(transactionController.update, views.handleUpdate);
 
 transactionRouter.route('/')
+  // Firing off the middleware that will grab the data, followed by another middleware that will display that data
   .get(transactionController.getAll, views.showTransactions);
 
 transactionRouter.use(handle404);

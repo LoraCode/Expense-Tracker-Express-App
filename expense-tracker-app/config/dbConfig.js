@@ -1,4 +1,4 @@
-// DATABASE CONFIGURATION
+/* DATABASE CONFIGURATION */
 
 const config = {
   // URL where database is located

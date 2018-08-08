@@ -1,4 +1,4 @@
-// CATEGORY MODEL
+/* CATEGORY MODEL */
 
 const db = require('../config/dbConnection');
 

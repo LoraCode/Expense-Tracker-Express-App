@@ -1,4 +1,4 @@
-// PG-PROMISE CONFIGURATION
+/* PG-PROMISE CONFIGURATION */
 
 // Importing database
 const config = require('./dbConfig');

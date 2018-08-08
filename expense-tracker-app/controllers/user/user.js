@@ -1,3 +1,5 @@
+/* USER CONTROLLER */
+
 const db = require('../../models/user');
 
 const getOne = async (req, res, next) => {
