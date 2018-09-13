@@ -30,7 +30,7 @@ app.use(logger('dev'));
 app.set('server_secret', process.env.SERVER_SECRET);
 // Allow app to create session for users using SERVER_SECRET key. Other options are boilerplate.
 app.use(session({
-  secret:            app.get('server_secret'),
+  secret:            app.get(process.env.SERVER_SECRET),
   resave:            false,
   saveUninitialized: false,
 }));
