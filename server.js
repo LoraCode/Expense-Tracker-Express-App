@@ -52,7 +52,7 @@ app.use('/users', userRouter);
 app.use('/transactions', transactionRouter);
 
 app.get('/', (req, res) => {
-  res.render('Index');
+  res.render('index');
 });
 
 // Allow app to send a json object for routes our app does not recognize
