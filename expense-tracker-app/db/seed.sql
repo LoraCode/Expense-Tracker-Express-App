@@ -1,4 +1,3 @@
-\c expenses_dev
 
 DELETE FROM categories;
 

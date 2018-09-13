@@ -3,7 +3,6 @@
 DROP DATABASE IF EXISTS expenses_dev;
 CREATE DATABASE expenses_dev;
 
-\c expenses_dev;
 -- References tables drop first and are created last
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS users;
