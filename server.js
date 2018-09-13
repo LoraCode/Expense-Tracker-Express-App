@@ -29,6 +29,7 @@ app.use(logger('dev'));
 // Set the secret using the SERVER_SECRET key stored in the .env file
 app.set('server_secret', process.env.SERVER_SECRET);
 // Allow app to create session for users using SERVER_SECRET key. Other options are boilerplate.
+console.log('secret: ', app.get('server_secret'));
 app.use(session({
   secret:            app.get('server_secret'),
   resave:            false,
