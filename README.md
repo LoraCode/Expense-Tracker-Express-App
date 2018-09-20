@@ -1,5 +1,5 @@
 # Expense-Tracker Express App
-Expense-Tracker stores users, and allows each particualr user to log their own expenses. The app is meant to provide full control over one user's log history, and it utilizes Auth to seperate and distinct each transaction logged from their presented user.
+Expense-Tracker stores users, and allows each particular user to log their own expenses. The app is meant to provide full control over one user's log history, and it utilizes Auth to separate and distinct each transaction logged from their presented user.
 
 https://secret-chamber-19793.herokuapp.com/
 
